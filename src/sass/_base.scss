@@ -1,0 +1,18 @@
+@use "sass:color";
+
+//Variabler
+$color-background-one: #469280;
+$color-background-two: color.scale(#469280, $lightness: -20%);
+$color-background-three: color.scale(#469280, $lightness: -40%);
+$color-background-four: color.scale(#469280, $lightness: -55%);
+$color-background-five: color.complement($color-background-three);
+
+$color-text-primary: white;
+$color-text-secondary: black;
+
+$font-title: "Titan One", sans-serif;
+$font-content: "Roboto", sans-serif;
+
+//Placeholders
+
+//Mixins
