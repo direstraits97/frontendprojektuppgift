@@ -32,6 +32,65 @@ async function collectData() {
 function placeMarkers(data) {
   data.forEach((place) => {
     const [long, lat] = place.location.coordinates;
-    L.marker([lat, long]).addTo(map);
+    L.marker([lat, long])
+      .addTo(map)
+      .addEventListener("click", () => writeInfo(place));
   });
+}
+function writeInfo(place) {
+  const informationEl = document.querySelector("#infocontainer");
+  informationEl.innerHTML = "";
+
+  const beachTitle = document.createElement("h3");
+  beachTitle.classList.add("textandicon");
+  const beachIcon = document.createElement("img");
+  beachIcon.setAttribute("src", "/ikoner/swimming.svg");
+  beachIcon.setAttribute("alt", "");
+  beachTitle.appendChild(beachIcon);
+  const BeachTitleText = document.createTextNode(place.name);
+  beachTitle.appendChild(BeachTitleText);
+
+  const beachInfo = document.createElement("p");
+  const infoText = document.createTextNode(
+    place.description
+      .replaceAll("\\r", "")
+      .replaceAll("\\n", "")
+      .replaceAll("\\", ""),
+  );
+  beachInfo.appendChild(infoText);
+
+  informationEl.appendChild(beachTitle);
+  informationEl.appendChild(beachInfo);
+
+  if (place.waterQuality) {
+    const tempTitle = document.createElement("h3");
+    const tempTitleText = document.createTextNode("Senast mätta temperatur:");
+    tempTitle.appendChild(tempTitleText);
+
+    const dateAndTime = document.createElement("p");
+    dateAndTime.classList.add("textandicon");
+    const dateAndTimeIcon = document.createElement("img");
+    dateAndTimeIcon.setAttribute("src", "/ikoner/time.svg");
+    dateAndTimeIcon.setAttribute("alt", "");
+    const dateAndTimeText = document.createTextNode(
+      place.waterQuality.dateObserved.replace("T", " ").slice(0, 16),
+    );
+    dateAndTime.appendChild(dateAndTimeIcon);
+    dateAndTime.appendChild(dateAndTimeText);
+
+    const temp = document.createElement("p");
+    temp.classList.add("textandicon");
+    const tempIcon = document.createElement("img");
+    tempIcon.setAttribute("src", "/ikoner/thermostat.svg");
+    tempIcon.setAttribute("alt", "");
+    const tempText = document.createTextNode(
+      place.waterQuality.temperature + "°C",
+    );
+    temp.appendChild(tempIcon);
+    temp.appendChild(tempText);
+
+    informationEl.appendChild(tempTitle);
+    informationEl.appendChild(dateAndTime);
+    informationEl.appendChild(temp);
+  }
 }

@@ -4,9 +4,9 @@ body {
   background-color: base.$color-background-one;
   color: base.$color-text-primary;
   margin: 0;
-  font-family: base.$font-title;
   line-height: 2.5em;
   text-align: center;
+  font-family: base.$font-content;
 }
 header {
   display: flex;
@@ -15,6 +15,7 @@ header {
   padding: 2%;
   font-size: 1.4rem;
   background-color: base.$color-background-four;
+  font-family: base.$font-title;
   img {
     width: 300px;
     height: 300px;
@@ -75,10 +76,12 @@ section {
   border: 8px solid base.$color-background-five;
   border-radius: 10px;
   p {
-    font-family: base.$font-content;
-    max-width: 60%;
+    max-width: 70%;
     margin-left: auto;
     margin-right: auto;
+  }
+  h3 {
+    font-size: 1.7rem;
   }
 }
 .textandicon {
