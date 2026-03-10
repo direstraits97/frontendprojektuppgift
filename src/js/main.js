@@ -38,8 +38,9 @@ function placeMarkers(data) {
   });
 }
 function writeInfo(place) {
-  const informationEl = document.querySelector("#infocontainer");
-  informationEl.innerHTML = "";
+  const informationHolder = document.querySelector("#infocontainer");
+  const informationEl = document.createElement("section");
+  informationHolder.innerHTML = "";
 
   const beachTitle = document.createElement("h3");
   beachTitle.classList.add("textandicon");
@@ -61,6 +62,7 @@ function writeInfo(place) {
 
   informationEl.appendChild(beachTitle);
   informationEl.appendChild(beachInfo);
+  informationHolder.appendChild(informationEl);
 
   if (place.waterQuality) {
     const tempTitle = document.createElement("h3");
@@ -92,5 +94,6 @@ function writeInfo(place) {
     informationEl.appendChild(tempTitle);
     informationEl.appendChild(dateAndTime);
     informationEl.appendChild(temp);
+    informationHolder.appendChild(informationEl);
   }
 }

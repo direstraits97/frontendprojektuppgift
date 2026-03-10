@@ -8,11 +8,28 @@ $color-background-four: color.scale(#469280, $lightness: -55%);
 $color-background-five: color.complement($color-background-three);
 
 $color-text-primary: white;
-$color-text-secondary: black;
 
 $font-title: "Titan One", sans-serif;
 $font-content: "Roboto", sans-serif;
 
 //Placeholders
+%centerchild {
+  margin-left: auto;
+  margin-right: auto;
+}
+%flexalign {
+  display: flex;
+  align-items: center;
+}
+%flexjustify {
+  display: flex;
+  justify-content: center;
+}
+%padding {
+  padding: 2%;
+}
+%border-radius {
+  border-radius: 10px;
+}
 
 //Mixins

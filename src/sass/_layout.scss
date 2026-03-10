@@ -9,10 +9,9 @@ body {
   font-family: base.$font-content;
 }
 header {
-  display: flex;
-  align-items: center;
+  @extend %flexalign;
   justify-content: space-around;
-  padding: 2%;
+  @extend %padding;
   font-size: 1.4rem;
   background-color: base.$color-background-four;
   font-family: base.$font-title;
@@ -22,13 +21,11 @@ header {
   }
 }
 #topmain {
-  display: flex;
-  align-items: center;
-  padding: 2%;
+  @extend %flexalign;
+  @extend %padding;
   justify-content: space-around;
   width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  @extend %centerchild;
   margin-top: 50px;
   margin-bottom: 70px;
   font-size: 1.2rem;
@@ -36,22 +33,20 @@ header {
     width: 100%;
   }
   h2 {
-    padding: 2%;
+    @extend %padding;
     width: 30%;
     background-color: base.$color-background-three;
-    border-radius: 15px;
+    @extend %border-radius;
   }
 }
 #mapcontainer {
   margin-bottom: 60px;
-  display: flex;
-  justify-content: center;
+  @extend %flexjustify;
   height: 70vh;
   width: 60%;
-  margin-left: auto;
-  margin-right: auto;
+  @extend %centerchild;
   border: 8px solid base.$color-background-two;
-  border-radius: 10px;
+  @extend %border-radius;
 }
 #map {
   width: 100%;
@@ -69,22 +64,21 @@ footer {
 section {
   background-color: base.$color-background-four;
   width: 50%;
-  padding: 2%;
+  @extend %padding;
   margin-bottom: 80px;
-  margin-left: auto;
-  margin-right: auto;
+  @extend %centerchild;
   border: 8px solid base.$color-background-five;
-  border-radius: 10px;
+  @extend %border-radius;
   p {
     max-width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+    @extend %centerchild;
   }
   h3 {
     font-size: 1.7rem;
   }
 }
 .textandicon {
-  display: flex;
-  justify-content: center;
+  @extend %flexjustify;
 }
+
+//Skapa mixins för mörkt läge?
