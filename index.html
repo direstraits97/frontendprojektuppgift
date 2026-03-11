@@ -11,9 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Titan+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -29,6 +30,7 @@
       <h1>Badplatser i Sundsvalls kommun</h1>
     </header>
     <main>
+      <h2 id="smallscreenheading">Badplatser i Sundsvalls kommun</h2>
       <div id="topmain">
         <picture>
           <source srcset="/bilder/AbborrvikenL.webp" type="image/webp" />
@@ -39,6 +41,8 @@
           platserna!
         </h2>
       </div>
+      <!--<p id="photocred">Sidsjön. Fotograf: Roger Andersson</p>-->
+      <div id="error"></div>
       <div id="mapcontainer">
         <div id="loading" class="spinner"></div>
         <div id="map" class="seethrough"></div>

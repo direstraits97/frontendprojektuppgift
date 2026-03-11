@@ -24,11 +24,12 @@ header {
   @extend %flexalign;
   @extend %padding;
   justify-content: space-around;
-  width: 80%;
+  width: 90%;
   @extend %centerchild;
   margin-top: 50px;
   margin-bottom: 70px;
   font-size: 1.2rem;
+  font-family: base.$font-title;
   img {
     width: 100%;
   }
@@ -84,9 +85,11 @@ section {
   opacity: 0;
   transform: translateY(6px);
   transition: 1.5s;
+  font-family: base.$font-title;
   p {
     max-width: 70%;
     @extend %centerchild;
+    font-family: base.$font-content;
   }
   h3 {
     font-size: 1.7rem;
@@ -98,6 +101,7 @@ section {
 }
 .textandicon {
   @extend %flexjustify;
+  gap: 0.3rem;
 }
 .spinner {
   width: 50px;
@@ -119,7 +123,29 @@ section {
 .seethrough {
   opacity: 0;
 }
-
+.error {
+  background-color: base.$color-background-error;
+  width: 40%;
+  @extend %border-radius;
+  @extend %padding;
+  @extend %centerchild;
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+}
+#smallscreenheading {
+  font-size: 2rem;
+  margin-top: 60px;
+  display: none;
+  font-family: base.$font-title;
+  @extend %border-radius;
+  width: 90%;
+  @extend %centerchild;
+  @extend %padding;
+}
+#photocred {
+  font-size: 0.8em;
+  font-family: base.$font-content;
+}
 @media (prefers-color-scheme: dark) {
   body {
     @include base.color-one-light($light-theme: false);

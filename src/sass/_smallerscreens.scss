@@ -1,0 +1,49 @@
+@media (max-width: 1024px) {
+  #topmain {
+    flex-direction: column;
+    h2 {
+      width: 90%;
+    }
+  }
+  #mapcontainer {
+    width: 90%;
+  }
+  .error {
+    width: 80%;
+  }
+  section {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  #topmain {
+    h2 {
+      width: 100%;
+    }
+  }
+  h1 {
+    display: none;
+  }
+  #smallscreenheading {
+    display: block;
+  }
+  .error {
+    width: 90%;
+  }
+  section {
+    width: 85%;
+  }
+  a {
+    margin-bottom: 40px;
+  }
+  header {
+    img {
+      width: 250px;
+      height: 250px;
+    }
+  }
+  #beachtitle {
+    display: block;
+  }
+}

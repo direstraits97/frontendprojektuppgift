@@ -29,6 +29,15 @@ async function collectData() {
     placeMarkers(mapData.data);
   } catch (error) {
     console.error("Fel: " + error);
+    const errorEl = document.querySelector("#error");
+    const errorMessage = document.createElement("p");
+    const errorMessageContent = document.createTextNode(
+      "Det verkar inte finnas några platser att hämta just nu, försök igen om en liten stund!",
+    );
+    errorMessage.appendChild(errorMessageContent);
+    errorMessage.classList.add("error");
+    errorMessage.classList.add("textandicon");
+    errorEl.appendChild(errorMessage);
   } finally {
     loader.classList.add("hidden");
     mapContent.classList.remove("seethrough");
@@ -50,6 +59,7 @@ function writeInfo(place) {
 
   const beachTitle = document.createElement("h3");
   beachTitle.classList.add("textandicon");
+  beachTitle.setAttribute("id", "beachtitle");
   const beachIcon = document.createElement("img");
   beachIcon.setAttribute("src", "/ikoner/swimming.svg");
   beachIcon.setAttribute("alt", "");
