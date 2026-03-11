@@ -1,13 +1,30 @@
 @use "sass:color";
 
 //Variabler
-$color-background-one: #469280;
-$color-background-two: color.scale(#469280, $lightness: -20%);
-$color-background-three: color.scale(#469280, $lightness: -40%);
-$color-background-four: color.scale(#469280, $lightness: -55%);
+$color-background-one: #027a7a;
+$color-background-two: color.scale($color-background-one, $lightness: -20%);
+$color-background-three: color.scale($color-background-one, $lightness: -40%);
+$color-background-four: color.scale($color-background-one, $lightness: -55%);
 $color-background-five: color.complement($color-background-three);
 
+$color-background-dark-one: #2b2b2b;
+$color-background-dark-two: color.scale(
+  $color-background-dark-one,
+  $lightness: 10%
+);
+$color-background-dark-three: color.scale(
+  $color-background-dark-one,
+  $lightness: -10%
+);
+$color-background-dark-four: color.scale(
+  $color-background-dark-one,
+  $lightness: -40%
+);
+
 $color-text-primary: white;
+
+$color-one-spinner: rgb(214, 214, 214);
+$color-two-spinner: rgb(97, 97, 97);
 
 $font-title: "Titan One", sans-serif;
 $font-content: "Roboto", sans-serif;
@@ -33,3 +50,25 @@ $font-content: "Roboto", sans-serif;
 }
 
 //Mixins
+@mixin color-one-light($light-theme: true) {
+  @if $light-theme {
+    background-color: $color-background-one;
+  } @else {
+    background-color: $color-background-dark-one;
+  }
+}
+
+@mixin color-two-light($light-theme: true) {
+  @if $light-theme {
+    background-color: $color-background-three;
+  } @else {
+    background-color: $color-background-dark-four;
+  }
+}
+@mixin color-three-light($light-theme: true) {
+  @if $light-theme {
+    background-color: $color-background-four;
+  } @else {
+    background-color: $color-background-dark-four;
+  }
+}

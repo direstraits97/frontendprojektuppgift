@@ -14,6 +14,9 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy;OpenStreetMap",
 }).addTo(map);
 
+const mapContent = document.querySelector("#map");
+const loader = document.querySelector("#loading");
+
 document.addEventListener("DOMContentLoaded", collectData);
 
 async function collectData() {
@@ -26,6 +29,9 @@ async function collectData() {
     placeMarkers(mapData.data);
   } catch (error) {
     console.error("Fel: " + error);
+  } finally {
+    loader.classList.add("hidden");
+    mapContent.classList.remove("seethrough");
   }
 }
 
@@ -96,4 +102,7 @@ function writeInfo(place) {
     informationEl.appendChild(temp);
     informationHolder.appendChild(informationEl);
   }
+  setTimeout(() => {
+    informationEl.classList.add("show");
+  }, 20);
 }

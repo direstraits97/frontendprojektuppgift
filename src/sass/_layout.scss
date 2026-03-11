@@ -1,7 +1,7 @@
 @use "base";
 
 body {
-  background-color: base.$color-background-one;
+  @include base.color-one-light($light-theme: true);
   color: base.$color-text-primary;
   margin: 0;
   line-height: 2.5em;
@@ -13,7 +13,7 @@ header {
   justify-content: space-around;
   @extend %padding;
   font-size: 1.4rem;
-  background-color: base.$color-background-four;
+  @include base.color-three-light($light-theme: true);
   font-family: base.$font-title;
   img {
     width: 300px;
@@ -35,7 +35,7 @@ header {
   h2 {
     @extend %padding;
     width: 30%;
-    background-color: base.$color-background-three;
+    @include base.color-two-light($light-theme: true);
     @extend %border-radius;
   }
 }
@@ -47,13 +47,16 @@ header {
   @extend %centerchild;
   border: 8px solid base.$color-background-two;
   @extend %border-radius;
+  position: relative;
+  @include base.color-three-light($light-theme: true);
 }
 #map {
   width: 100%;
   height: 100%;
+  z-index: 0;
 }
 footer {
-  background-color: base.$color-background-three;
+  @include base.color-two-light($light-theme: true);
   font-family: base.$font-content;
   padding: 3%;
   a {
@@ -61,14 +64,26 @@ footer {
     text-decoration: none;
   }
 }
+#arrowright {
+  transform: translate(0px, 0px);
+  transition-duration: 0.7s;
+}
+a:hover {
+  #arrowright {
+    transform: translate(0px, -3px);
+  }
+}
 section {
-  background-color: base.$color-background-four;
+  @include base.color-three-light($light-theme: true);
   width: 50%;
   @extend %padding;
   margin-bottom: 80px;
   @extend %centerchild;
   border: 8px solid base.$color-background-five;
   @extend %border-radius;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: 1.5s;
   p {
     max-width: 70%;
     @extend %centerchild;
@@ -77,8 +92,55 @@ section {
     font-size: 1.7rem;
   }
 }
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 .textandicon {
   @extend %flexjustify;
 }
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid base.$color-one-spinner;
+  border-radius: 50%;
+  border-top-color: base.$color-two-spinner;
+  animation-name: loadSpin;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - 25px);
+}
+.hidden {
+  display: none;
+}
+.seethrough {
+  opacity: 0;
+}
 
-//Skapa mixins för mörkt läge?
+@media (prefers-color-scheme: dark) {
+  body {
+    @include base.color-one-light($light-theme: false);
+  }
+  header {
+    @include base.color-three-light($light-theme: false);
+  }
+  #topmain {
+    h2 {
+      @include base.color-two-light($light-theme: false);
+    }
+  }
+  #mapcontainer {
+    border: 8px solid base.$color-background-dark-two;
+    @include base.color-three-light($light-theme: false);
+  }
+  footer {
+    @include base.color-two-light($light-theme: false);
+  }
+  section {
+    @include base.color-three-light($light-theme: false);
+    border: 8px solid base.$color-background-dark-two;
+  }
+}
