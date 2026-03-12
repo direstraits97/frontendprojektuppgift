@@ -1,0 +1,175 @@
+@use "base";
+
+body {
+  @include base.color-one-light($light-theme: true);
+  color: base.$color-text-primary;
+  margin: 0;
+  line-height: 2.5em;
+  text-align: center;
+  font-family: base.$font-content;
+}
+header {
+  @extend %flexalign;
+  justify-content: space-around;
+  @extend %padding;
+  font-size: 1.4rem;
+  @include base.color-three-light($light-theme: true);
+  font-family: base.$font-title;
+  img {
+    width: 300px;
+    height: 300px;
+  }
+}
+#topmain {
+  @extend %flexalign;
+  @extend %padding;
+  justify-content: space-around;
+  width: 90%;
+  @extend %centerchild;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  font-size: 1.2rem;
+  font-family: base.$font-title;
+  img {
+    width: 100%;
+    @extend %border-radius;
+  }
+  h2 {
+    @extend %padding;
+    width: 30%;
+    @include base.color-two-light($light-theme: true);
+    @extend %border-radius;
+  }
+}
+#mapcontainer {
+  margin-bottom: 60px;
+  @extend %flexjustify;
+  height: 70vh;
+  width: 60%;
+  @extend %centerchild;
+  border: 8px solid base.$color-background-two;
+  @extend %border-radius;
+  position: relative;
+  @include base.color-three-light($light-theme: true);
+}
+#map {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+footer {
+  @include base.color-two-light($light-theme: true);
+  font-family: base.$font-content;
+  padding: 3%;
+  a {
+    color: base.$color-text-primary;
+    text-decoration: none;
+  }
+}
+#arrowright {
+  transform: translate(0px, 0px);
+  transition-duration: 0.7s;
+}
+a:hover {
+  #arrowright {
+    transform: translate(0px, -3px);
+  }
+}
+section {
+  @include base.color-three-light($light-theme: true);
+  width: 50%;
+  @extend %padding;
+  margin-bottom: 80px;
+  @extend %centerchild;
+  border: 8px solid base.$color-background-five;
+  @extend %border-radius;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: 1.5s;
+  font-family: base.$font-title;
+  p {
+    max-width: 70%;
+    @extend %centerchild;
+    font-family: base.$font-content;
+  }
+  h3 {
+    font-size: 1.7rem;
+  }
+}
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.textandicon {
+  @extend %flexjustify;
+  gap: 0.3rem;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid base.$color-one-spinner;
+  border-radius: 50%;
+  border-top-color: base.$color-two-spinner;
+  animation-name: loadSpin;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - 25px);
+}
+.hidden {
+  display: none;
+}
+.seethrough {
+  opacity: 0;
+}
+.error {
+  background-color: base.$color-background-error;
+  width: 40%;
+  @extend %border-radius;
+  @extend %padding;
+  @extend %centerchild;
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+}
+#smallscreenheading {
+  font-size: 2rem;
+  margin-top: 60px;
+  display: none;
+  font-family: base.$font-title;
+  @extend %border-radius;
+  width: 90%;
+  @extend %centerchild;
+  @extend %padding;
+}
+#photocred {
+  font-size: 0.7em;
+  font-family: base.$font-content;
+  margin-top: 0;
+  text-align: left;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    @include base.color-one-light($light-theme: false);
+  }
+  header {
+    @include base.color-three-light($light-theme: false);
+  }
+  #topmain {
+    h2 {
+      @include base.color-two-light($light-theme: false);
+    }
+  }
+  #mapcontainer {
+    border: 8px solid base.$color-background-dark-two;
+    @include base.color-three-light($light-theme: false);
+  }
+  footer {
+    @include base.color-two-light($light-theme: false);
+  }
+  section {
+    @include base.color-three-light($light-theme: false);
+    border: 8px solid base.$color-background-dark-two;
+  }
+}

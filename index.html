@@ -1,11 +1,80 @@
 <!doctype html>
 <html lang="sv">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/sass/main.scss">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="iamge/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="">
+    <link rel="stylesheet" href="node_modules/ol/ol.css">
     <title>Badplatser i Sundsvall</title>
   </head>
   <body>
+    <header>
+      <img src="/bilder/front-end-logo.svg" alt="" fetchpriority="high">
+      <h1>Badplatser i Sundsvalls kommun</h1>
+    </header>
+    <main>
+      <h2 id="smallscreenheading">Badplatser i Sundsvalls kommun</h2>
+      <div id="topmain">
+        <div id="photoandcred">
+          <picture>
+            <source
+              srcset="/bilder/AbborrvikenL.webp"
+              type="image/webp"
+              media="(min-width: 601px)">
+            <source
+              srcset="/bilder/AbborrvikenL.jpg"
+              type="image/jpeg"
+              media="(min-width: 601px)">
+            <source
+              srcset="/bilder/AbborrvikenS.webp"
+              type="image/webp"
+              media="(max-width: 600px)">
+            <img
+              src="/bilder/AbborrvikenS.jpg"
+              alt="En brygga i Sidsjön, Sundsvall"
+              loading="lazy">
+          </picture>
+          <p id="photocred">Sidsjön. Fotograf: Roger Andersson</p>
+        </div>
+        <h2>
+          Vill du veta mer om badplatserna på kartan? Klicka på de olika
+          platserna!
+        </h2>
+      </div>
+      <div id="error"></div>
+      <div id="mapcontainer">
+        <div id="loading" class="spinner"></div>
+        <div id="map" class="seethrough"></div>
+      </div>
+      <div id="infocontainer"></div>
+    </main>
+    <footer>
+      <p>Vill du läsa mer om koden som skapat denna webbplats?</p>
+      <a class="textandicon" href="https://jsdocsprojektjoba1602.netlify.app/">
+        JSDocs
+        <img src="/ikoner/arrowright.svg" id="arrowright" alt="">
+      </a>
+    </footer>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>
