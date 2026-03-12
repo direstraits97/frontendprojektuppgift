@@ -24,7 +24,7 @@
   </head>
   <body>
     <header>
-      <img src="/bilder/front-end-logo.svg" alt="">
+      <img src="/bilder/front-end-logo.svg" alt="" fetchpriority="high">
       <h1>Badplatser i Sundsvalls kommun</h1>
     </header>
     <main>
@@ -32,8 +32,22 @@
       <div id="topmain">
         <div id="photoandcred">
           <picture>
-            <source srcset="/bilder/AbborrvikenL.webp" type="image/webp">
-            <img src="/bilder/AbborrvikenL.jpg" alt="En brygga i Sidsjön, Sundsvall">
+            <source
+              srcset="/bilder/AbborrvikenL.webp"
+              type="image/webp"
+              media="(min-width: 601px)">
+            <source
+              srcset="/bilder/AbborrvikenL.jpg"
+              type="image/jpeg"
+              media="(min-width: 601px)">
+            <source
+              srcset="/bilder/AbborrvikenS.webp"
+              type="image/webp"
+              media="(max-width: 600px)">
+            <img
+              src="/bilder/AbborrvikenS.jpg"
+              alt="En brygga i Sidsjön, Sundsvall"
+              loading="lazy">
           </picture>
           <p id="photocred">Sidsjön. Fotograf: Roger Andersson</p>
         </div>
