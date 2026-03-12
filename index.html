@@ -34,9 +34,18 @@
           <picture>
             <source
               srcset="/bilder/AbborrvikenL.webp"
-              type="image/webp">
+              type="image/webp"
+              media="(min-width: 401px)">
+            <source
+              srcset="/bilder/AbborrvikenL.jpg"
+              type="image/jpeg"
+              media="(min-width: 401px)">
+            <source
+              srcset="/bilder/AbborrvikenS.webp"
+              type="image/webp"
+              media="(max-width: 400px)">
             <img
-              src="/bilder/AbborrvikenL.jpg"
+              src="/bilder/AbborrvikenS.jpg"
               alt="En brygga i Sidsjön, Sundsvall"
               fetchpriority="high">
           </picture>

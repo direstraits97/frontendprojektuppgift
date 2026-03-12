@@ -91,6 +91,7 @@ section {
     max-width: 70%;
     @extend %centerchild;
     font-family: base.$font-content;
+    word-break: break-all;
   }
   h3 {
     font-size: 1.7rem;
