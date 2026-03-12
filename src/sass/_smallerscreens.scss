@@ -13,6 +13,9 @@
   }
   section {
     width: 80%;
+    p {
+      max-width: 80%;
+    }
   }
 }
 
@@ -33,6 +36,9 @@
   }
   section {
     width: 85%;
+    p {
+      max-width: 90%;
+    }
   }
   a {
     margin-bottom: 40px;
