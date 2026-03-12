@@ -33,6 +33,7 @@ header {
   img {
     width: 100%;
     @extend %border-radius;
+    max-width: 600px;
   }
   h2 {
     @extend %padding;
