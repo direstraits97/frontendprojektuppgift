@@ -1,5 +1,8 @@
 @use "base";
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   @include base.color-one-light($light-theme: true);
   color: base.$color-text-primary;

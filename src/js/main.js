@@ -169,4 +169,6 @@ function writeInfo(place) {
   setTimeout(() => {
     informationEl.classList.add("show");
   }, 20);
+  //Skrollar ner till informationen, extra tydlighet för användaren på mindre skärmar.
+  informationHolder.scrollIntoView();
 }
