@@ -1,5 +1,8 @@
 @use "base";
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   @include base.color-one-light($light-theme: true);
   color: base.$color-text-primary;
@@ -92,7 +95,7 @@ section {
     max-width: 70%;
     @extend %centerchild;
     font-family: base.$font-content;
-    word-break: break-all;
+    word-break: break-word;
   }
   h3 {
     font-size: 1.7rem;
